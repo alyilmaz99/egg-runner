@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/DogukanDeneme.unity
+    guid: 20474aaeb2d73d242bc999ca4a5f2f4e
   m_configObjects: {}

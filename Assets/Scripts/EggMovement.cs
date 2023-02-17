@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EggMovement : MonoBehaviour
 {
+    [SerializeField] private Joystick joy;
+
     Rigidbody rb;
-    [SerializeField] private float speed, jumpForce;
+    [SerializeField] private float speed, jumpForce , jumpJoystickOffSet;
+    
     [SerializeField] private Vector3 direction;
     [SerializeField] private bool canJump=true;
     [SerializeField] private Animator anim;
@@ -18,7 +21,8 @@ public class EggMovement : MonoBehaviour
     
     void Update()
     {
-        Movement();
+        //Movement();
+        MovementMobile();
     }
 
     void Movement()
@@ -29,10 +33,30 @@ public class EggMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            //rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             canJump = false;
             anim.SetBool("jumping", true);
         }
+    }
+
+    void MovementMobile()
+    {
+        float joyHorizantalMove = joy.Horizontal * speed * Time.deltaTime;
+        float verticalMove = joy.Vertical;
+
+        if(verticalMove> jumpJoystickOffSet && canJump)
+        {
+            Debug.Log("sss");
+            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+            canJump = false;
+            anim.SetBool("jumping", true);
+        }
+
+
+        Vector3 joyMovement = new Vector3(joyHorizantalMove, 0,speed*Time.deltaTime);
+        transform.position += joyMovement;
+
+
     }
 
     private void OnTriggerEnter(Collider other)
