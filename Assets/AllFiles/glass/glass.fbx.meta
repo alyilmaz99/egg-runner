@@ -3,7 +3,17 @@ guid: 341de880dc836134fac1bdf07fb46cc4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass Without Black Spots v2
+    second: {fileID: 2100000, guid: cfc025155bc7b0f4cb5ee96fcff12045, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water
+    second: {fileID: 2100000, guid: 468f7f2c65a6e654db375f6732294827, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

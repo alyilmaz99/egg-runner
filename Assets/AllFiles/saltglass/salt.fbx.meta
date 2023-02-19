@@ -3,7 +3,22 @@ guid: 08b23eef52a0b024c975adbbab2b0c4f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass Without Black Spots v2
+    second: {fileID: 2100000, guid: 4b7331fcaec1e034daaa2f54aeca7d09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: iron
+    second: {fileID: 2100000, guid: e8b95bed4a9136446a87d0e63b58e8eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: salt
+    second: {fileID: 2100000, guid: 0d445e62911387747a9cbf96469390aa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
