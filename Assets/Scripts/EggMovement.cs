@@ -6,11 +6,14 @@ public class EggMovement : MonoBehaviour
 {
     [SerializeField] private Joystick joy;
 
+    public int smooth;
+
     Rigidbody rb;
     [SerializeField] private float speed, jumpForce , jumpJoystickOffSet;
     
     [SerializeField] private Vector3 direction;
-    [SerializeField] private bool canJump=true;
+    [SerializeField] private bool canJump = true;
+    public bool canMove = true;
     [SerializeField] private Animator anim;
     void Start()
     {
@@ -22,7 +25,11 @@ public class EggMovement : MonoBehaviour
     void Update()
     {
         //Movement();
-        MovementMobile();
+        if (canMove)
+        {
+            MovementMobile();
+        }
+        MovementFixer();
     }
 
     void Movement()
@@ -36,6 +43,20 @@ public class EggMovement : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             canJump = false;
             anim.SetBool("jumping", true);
+        }
+    }
+
+
+    void MovementFixer()
+    {
+        if (transform.position.x > 1.25f)
+        {
+            //transform.position = new Vector3(1,transform.position.y,transform.position.z);
+            transform.position = Vector3.Slerp(transform.position, new Vector3(1f, transform.position.y, transform.position.z), smooth);
+        }
+        else if ( transform.position.x < -3.2f)
+        {
+            transform.position = Vector3.Slerp(transform.position, new Vector3(-2.8f, transform.position.y, transform.position.z),smooth);
         }
     }
 
@@ -64,10 +85,27 @@ public class EggMovement : MonoBehaviour
         if (other.gameObject.tag == "Obstacle")
         {
             Debug.Log("yandiniz");
+            canMove = false;
+            anim.SetTrigger("crash");
         }
 
-        
+        else if (other.gameObject.tag == "Water")
+        {
+
+            Invoke("WaterDrown", .3f);
+        }
+
+
     }
+
+    void WaterDrown()
+    {
+        
+        rb.isKinematic = true;
+        anim.SetBool("drown", true);
+        canMove = false;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
