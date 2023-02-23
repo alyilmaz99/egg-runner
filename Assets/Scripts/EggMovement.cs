@@ -15,6 +15,7 @@ public class EggMovement : MonoBehaviour
     [SerializeField] private bool canJump = true;
     public bool canMove = true;
     [SerializeField] private Animator anim;
+    [SerializeField] private UIManager uIManager;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -112,6 +113,10 @@ public class EggMovement : MonoBehaviour
         {
             canJump = true;
             anim.SetBool("jumping", false);
+        }
+        else if (collision.gameObject.tag=="Finish")
+        {
+            uIManager.FinishGame();
         }
     }
 }
