@@ -8,6 +8,7 @@ TagManager:
   - Egg
   - Ground
   - Water
+  - Coin
   layers:
   - Default
   - TransparentFX

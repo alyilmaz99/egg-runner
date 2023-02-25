@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/AyberkDeneme.unity
+    guid: 5dce6f8b8ea3f1744bdedf37fa5833be
+  - enabled: 1
+    path: Assets/Scenes/2.unity
+    guid: cf01d99e03714874d8f620eac06168e3
+  - enabled: 1
+    path: Assets/Scenes/3.unity
+    guid: 4f0d6d1e7519e5e4b8d5ad9b649f2edc
+  - enabled: 1
     path: Assets/Scenes/DogukanDeneme.unity
     guid: 20474aaeb2d73d242bc999ca4a5f2f4e
   m_configObjects: {}
