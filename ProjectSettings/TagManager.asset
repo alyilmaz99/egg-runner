@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Water
   - Coin
+  - ScoreText
   layers:
   - Default
   - TransparentFX

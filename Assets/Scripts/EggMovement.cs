@@ -53,11 +53,11 @@ public class EggMovement : MonoBehaviour
         if (transform.position.x > 1.25f)
         {
             //transform.position = new Vector3(1,transform.position.y,transform.position.z);
-            transform.position = Vector3.Slerp(transform.position, new Vector3(1f, transform.position.y, transform.position.z), smooth);
+            transform.position = Vector3.Slerp(transform.position, new Vector3(1.24f, transform.position.y, transform.position.z), smooth);
         }
         else if ( transform.position.x < -3.2f)
         {
-            transform.position = Vector3.Slerp(transform.position, new Vector3(-2.8f, transform.position.y, transform.position.z),smooth);
+            transform.position = Vector3.Slerp(transform.position, new Vector3(-3.19f, transform.position.y, transform.position.z),smooth);
         }
     }
 

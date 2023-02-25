@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject endScreen,finishScreen,egg;
 
+    [SerializeField] private TextMeshProUGUI Coin;
 
 
     void Start()
@@ -22,6 +24,10 @@ public class UIManager : MonoBehaviour
         {
             Invoke("EndGame", 2f);
         }
+
+
+
+        Coin.text = PlayerPrefs.GetInt("Coin").ToString();
     }
 
     private void EndGame()
