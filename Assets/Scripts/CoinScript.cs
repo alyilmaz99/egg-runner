@@ -6,25 +6,39 @@ using TMPro;
 public class CoinScript : MonoBehaviour
 {
     private int coin;
-    [SerializeField] private TextMeshProUGUI Coin;
+
+    [SerializeField] GameObject coinPrefab;
+
+
 
      void Start()
      {
         coin = PlayerPrefs.GetInt("Coin");
+        
      }
 
     private void Update()
     {
-        Coin.text = PlayerPrefs.GetInt("Coin").ToString();
+       // Coin.text = PlayerPrefs.GetInt("Coin").ToString();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag=="Coin")
+        if (other.gameObject.tag=="Coin")
         {
+
+            Debug.Log("aaaaaaaaaaaaaa");
             coin++;
             PlayerPrefs.SetInt("Coin", coin);
-            Destroy(collision.gameObject);
+
+            GameObject newObject= Instantiate(coinPrefab,other.transform.position,Quaternion.identity);
+            Destroy(other.gameObject);
+            Destroy(newObject, 0.25f);
         }
     }
+
+    
+
+    
+
 }
